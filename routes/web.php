@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/", [CrudController::class, "index"])->name("crud.index");
-/* Ruta para añadir un nuevo producto */
-Route::post("/registrar-producto", [CrudController::class, "create"])->name("crud.create");
-/* Ruta para modificar producto */
-Route::post("/modificar-producto", [CrudController::class, "update"])->name("crud.update");
-/* Ruta para Eliminar producto */
-Route::get("/eliminar-producto{id}", [CrudController::class, "delete"])->name("crud.delete");
+/* Ruta para añadir un nuevo deportista */
+Route::post("/registrar-deportista", [CrudController::class, "create"])->name("crud.create");
+/* Ruta para modificar deportista */
+Route::post("/modificar-deportista", [CrudController::class, "update"])->name("crud.update");
+/* Ruta para Eliminar deportista */
+Route::get("/eliminar-deportistas{id}", [CrudController::class, "delete"])->name("crud.delete");

@@ -28,7 +28,7 @@
     } 
  </script>
 
-  <!-- Modal Añadir producto-->
+  <!-- Modal Añadir deportista-->
       <div class="modal fade" id="modalRegistrar" tabindex="-1" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog">
@@ -43,7 +43,7 @@
                   <form action="{{route("crud.create")}}" method="POST">
                     @csrf
                       <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Numero de documento</label>
+                          <label for="exampleInputEmail1" class="form-label">Numero de item</label>
                           <input type="text" class="form-control" id="exampleInputEmail1"
                               aria-describedby="emailHelp" name="txtcodigo">
                       </div>
@@ -105,7 +105,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar datos del producto
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar datos del deportista
                                         </h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
@@ -114,7 +114,7 @@
                                         <form action="{{route("crud.update")}}" method="POST">
                                             @csrf
                                             <div class="mb-3">
-                                                <label for="exampleInputEmail1" class="form-label">Numero de documento</label>
+                                                <label for="exampleInputEmail1" class="form-label">Numero de item</label>
                                                 <input type="text" class="form-control" id="exampleInputEmail1"
                                                     aria-describedby="emailHelp" name="txtcodigo" value="{{$item->documento}}" readonly>
                                             </div>
