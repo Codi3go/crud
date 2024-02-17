@@ -34,7 +34,7 @@
       <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar nuevo producto
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">A continuación va a agregar un deportista
                   </h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal"
                       aria-label="Close"></button>
@@ -43,24 +43,24 @@
                   <form action="{{route("crud.create")}}" method="POST">
                     @csrf
                       <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Codigo del producto</label>
+                          <label for="exampleInputEmail1" class="form-label">Numero de documento</label>
                           <input type="text" class="form-control" id="exampleInputEmail1"
                               aria-describedby="emailHelp" name="txtcodigo">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nombre del producto</label>
+                        <label for="exampleInputEmail1" class="form-label">Nombres y apellidos</label>
                         <input type="text" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" name="txtnombre">
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Precio del producto</label>
+                      <label for="exampleInputEmail1" class="form-label">Fecha de nacimiento</label>
                       <input type="text" class="form-control" id="exampleInputEmail1"
-                          aria-describedby="emailHelp" name="txtprecio">
+                          aria-describedby="emailHelp" name="txtnacimiento">
                   </div>
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Cantidad del producto</label>
+                    <label for="exampleInputEmail1" class="form-label">Entidad promotora de salud EPS</label>
                     <input type="text" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" name="txtcantidad">
+                        aria-describedby="emailHelp" name="txteps">
                 </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -77,9 +77,9 @@
             <thead class="bg-primary text-white"><!--No responde-->
                 <tr>
                     <th scope="col">DOCUMENTO</th>
-                    <th scope="col">NOMBRE</th>
-                    <th scope="col">PRECIO</th>
-                    <th scope="col">CANTIDAD</th>
+                    <th scope="col">NOMBRES Y APELLIDOS</th>
+                    <th scope="col">FECHA DE NACIMIENTO</th>
+                    <th scope="col">ENTIDAD PROMOTORA DE SALUD</th>
                     <th></th>
 
 
@@ -88,19 +88,19 @@
             <tbody class="table-group-divider">
                 @foreach ($datos as $item)
                     <tr>
-                        <th>{{ $item->id_producto }}</th>
+                        <th>{{ $item->documento }}</th>
                         <td>{{ $item->nombre }}</td>
-                        <td>{{ $item->precio }}</td>
-                        <td>{{ $item->cantidad }}</td>
+                        <td>{{ $item->nacimiento }}</td>
+                        <td>{{ $item->eps }}</td>
                         <td>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#modalEditar{{ $item->id_producto }}"
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalEditar{{ $item->documento }}"
                                 class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="{{route("crud.delete",$item->id_producto)}}" onclick="return res()" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i></a>
+                            <a href="{{route("crud.delete",$item->documento)}}" onclick="return res()" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i></a>
                         </td>
 
 
                         <!-- Modal Modificar datos-->
-                        <div class="modal fade" id="modalEditar{{ $item->id_producto }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" id="modalEditar{{ $item->documento }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -114,24 +114,24 @@
                                         <form action="{{route("crud.update")}}" method="POST">
                                             @csrf
                                             <div class="mb-3">
-                                                <label for="exampleInputEmail1" class="form-label">Codigo del producto</label>
+                                                <label for="exampleInputEmail1" class="form-label">Numero de documento</label>
                                                 <input type="text" class="form-control" id="exampleInputEmail1"
-                                                    aria-describedby="emailHelp" name="txtcodigo" value="{{$item->id_producto}}" readonly>
+                                                    aria-describedby="emailHelp" name="txtcodigo" value="{{$item->documento}}" readonly>
                                             </div>
                                             <div class="mb-3">
-                                              <label for="exampleInputEmail1" class="form-label">Nombre del producto</label>
+                                              <label for="exampleInputEmail1" class="form-label">Nombres y apellidos</label>
                                               <input type="text" class="form-control" id="exampleInputEmail1"
                                                   aria-describedby="emailHelp" name="txtnombre" value="{{$item->nombre}}">
                                           </div>
                                           <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Precio del producto</label>
+                                            <label for="exampleInputEmail1" class="form-label">Fecha de nacimiento</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" name="txtprecio" value="{{$item->precio}}">
+                                                aria-describedby="emailHelp" name="txtnacimiento" value="{{$item->nacimiento}}">
                                         </div>
                                         <div class="mb-3">
-                                          <label for="exampleInputEmail1" class="form-label">Cantidad del producto</label>
+                                          <label for="exampleInputEmail1" class="form-label">Entidad promotora de salud EPS</label>
                                           <input type="text" class="form-control" id="exampleInputEmail1"
-                                              aria-describedby="emailHelp" name="txtcantidad" value="{{$item->cantidad}}">
+                                              aria-describedby="emailHelp" name="txteps" value="{{$item->eps}}">
                                       </div>
                                               <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

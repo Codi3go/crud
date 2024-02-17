@@ -14,11 +14,11 @@ class CrudController extends Controller
 
     public function create(Request $request){
    try {
-        $sql=DB::insert(" insert into producto(id_producto,nombre,precio,cantidad)values(?,?,?,?)",[
+        $sql=DB::insert(" insert into producto(documento,nombre,nacimiento,eps)values(?,?,?,?)",[
             $request->txtcodigo,
             $request->txtnombre,
-            $request->txtprecio,
-            $request->txtcantidad,
+            $request->txtnacimiento,
+            $request->txteps,
         ]);
    } catch (\Throwable $th) {
     $sql = 0;
@@ -34,11 +34,11 @@ class CrudController extends Controller
 public function update(Request $request)
 {
     try {
-         $sql=DB::update(" update producto set nombre=?, precio=?, cantidad=? where id_producto=? ",[
+         $sql=DB::update(" update producto set nombre=?, nacimiento=?, eps=? where documento=? ",[
              
              $request->txtnombre,
-             $request->txtprecio,
-             $request->txtcantidad,
+             $request->txtnacimiento,
+             $request->txteps,
              $request->txtcodigo,
          ]);
          if ($sql==0) {
@@ -56,7 +56,7 @@ public function update(Request $request)
 
  public function delete($id){
     try {
-        $sql=DB::delete(" delete from producto where id_producto=$id");
+        $sql=DB::delete(" delete from producto where documento=$id");
    } catch (\Throwable $th) {
     $sql = 0;
    }
